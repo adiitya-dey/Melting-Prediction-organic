@@ -1,9 +1,18 @@
 FROM python:3.11-slim
 
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY main.py ./
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Install dependencies
+# WORKDIR $APP_HOME
+# COPY main.py ./
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-CMD ["python", "./main.py"]
+
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# Run application
+COPY main.py .
+CMD ["python", "main.py"]
