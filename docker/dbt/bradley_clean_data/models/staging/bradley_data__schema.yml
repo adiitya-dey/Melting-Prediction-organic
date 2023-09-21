@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: stg_bradley_data
+    description: "The bradley dataset table loaded from csv."
+    columns:
+      - key: id
+        description: "The primary key for this table"
+      - key: name
+      description: "The name of the molecule"
+      - key: smiles
+      description: "The smile format of the molecule"
+      - key: melting_temperature_C
+      description: "The melting point temperature in degree celcius"
+      - key: csid
+      description: "The reference id in the source link"
+      - key: donotuse
+      description: "Do not use indicator"
+      

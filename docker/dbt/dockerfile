@@ -1,0 +1,20 @@
+FROM python:3.11-slim
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Install dependencies
+# ENV APP_HOME /app
+# WORKDIR $APP_HOME
+# COPY main.py ./
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# Run application
+COPY bradley_clean_data .
+COPY logs .
+CMD ["dbt", "run"]
