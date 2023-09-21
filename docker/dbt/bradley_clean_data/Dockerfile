@@ -7,7 +7,7 @@ FROM ghcr.io/dbt-labs/dbt-bigquery:1.2.latest
 USER root
 WORKDIR /dbt
 COPY --from=builder /app/server ./
-COPY script.sh ./
+COPY scripts.sh ./
 COPY . ./
 
 ENTRYPOINT "./server"
