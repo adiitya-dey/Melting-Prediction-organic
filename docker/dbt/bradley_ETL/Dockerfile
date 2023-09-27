@@ -27,7 +27,6 @@ RUN pip install --no-cache /wheels/*
 COPY app.py .
 COPY bradley_clean_data ./bradley_clean_data
 COPY profiles.yml .
-COPY scripts.sh .
 
 
 CMD ["gunicorn","-b", "0.0.0.0:8080", "app:app"]

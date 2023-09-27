@@ -7,11 +7,13 @@ app = flask.Flask(__name__)
 @app.route('/', methods=['GET'])
 def home():
     try:
-        subprocess.run(['sh', 'scripts.sh'], check=True, text=True)
+        subprocess.run(['dbt','deps', '--profile-dir','.'], check=True, text=True)
+        subprocess.run(['dbt','debug','--target','prod', '--profile-dir','.'], check=True, text=True)
+        subprocess.run(['dbt','run','--target','prod', '--profile-dir','.'], check=True, text=True)
     except subprocess.CalledProcessError as e:
-        return f"Error running the shell script: {e}"
+        return f"Error running the subprocess: {e}"
     else:
-        return f"Shell script executed successfully."
+        return f"Subprocess executed successfully."
 
 
 if __name__=="__main__":
