@@ -7,7 +7,7 @@ app = flask.Flask(__name__)
 @app.route('/', methods=['GET'])
 def home():
     try:
-        subprocess.run(['sh', 'bradley_clean_data/scripts.sh'], check=True, text=True)
+        subprocess.run(['sh', './bradley_clean_data/scripts.sh'], check=True, text=True)
     except subprocess.CalledProcessError as e:
         return f"Error running the shell script: {e}"
     else:
