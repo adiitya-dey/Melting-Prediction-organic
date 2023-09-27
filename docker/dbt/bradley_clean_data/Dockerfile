@@ -12,5 +12,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8080
 
 COPY app.py .
-# CMD ["gunicorn","-b", "0.0.0.0:8080", "app:app"]
-CMD ["python", "app.py"]
+CMD ["gunicorn","-b", "0.0.0.0:8080", "app:app"]
+# CMD ["python", "app.py"]
