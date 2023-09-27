@@ -1,3 +1,3 @@
 dbt-bigquery==1.5.0
 flask==2.3.0
-gunciorn==21.2.0
+gunicorn==21.2.0
