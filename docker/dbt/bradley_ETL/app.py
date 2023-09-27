@@ -7,9 +7,9 @@ app = flask.Flask(__name__)
 @app.route('/', methods=['GET'])
 def home():
     try:
-        subprocess.run(['dbt','deps', '--profile-dir','.'], check=True, text=True)
-        subprocess.run(['dbt','debug','--target','prod', '--profile-dir','.'], check=True, text=True)
-        subprocess.run(['dbt','run','--target','prod', '--profile-dir','.'], check=True, text=True)
+        subprocess.run(['dbt','deps', '--profiles-dir','.'], check=True, text=True)
+        subprocess.run(['dbt','debug','--target','prod', '--profiles-dir','.'], check=True, text=True)
+        subprocess.run(['dbt','run','--target','prod', '--profiles-dir','.'], check=True, text=True)
     except subprocess.CalledProcessError as e:
         return f"Error running the subprocess: {e}"
     else:
