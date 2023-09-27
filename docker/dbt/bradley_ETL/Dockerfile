@@ -25,7 +25,8 @@ COPY  --from=builder /app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
 COPY app.py .
-COPY bradley_clean_data/ .
+COPY bradley_clean_data ./bradley_clean_data
+COPY profiles.yml .
 COPY scripts.sh .
 
 
