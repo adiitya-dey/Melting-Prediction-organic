@@ -10,4 +10,4 @@ my-bigquery-db:
       dataset: dataset001_meltingpointprediction # You can also use "schema" here
       threads: 1
       keyfile: /secrets/dbt-service-keyfile
-      [<optional_config>](#optional-configurations): <value>
+      # [<optional_config>](#optional-configurations): <value>
