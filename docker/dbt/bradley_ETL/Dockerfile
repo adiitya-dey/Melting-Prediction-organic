@@ -13,6 +13,7 @@ EXPOSE 8080
 
 COPY app.py .
 COPY bradley_clean_data .
+COPY scripts.sh .
 
 
 CMD ["gunicorn","-b", "0.0.0.0:8080", "app:app"]
