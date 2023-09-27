@@ -1,13 +1,14 @@
-FROM golang:1.13 as builder
+FROM python:3.11-slim
 WORKDIR /app
-COPY invoke.go ./
-RUN CGO_ENABLED=0 GOOS=linux go build -v -o server
 
-FROM ghcr.io/dbt-labs/dbt-bigquery:1.2.latest
-USER root
-WORKDIR /dbt
-COPY --from=builder /app/server ./
-COPY scripts.sh ./
-COPY . ./
 
-ENTRYPOINT "./server"
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["gunicorn","--b", "0.0.0.0:5000", "app:app"]
