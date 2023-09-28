@@ -11,7 +11,7 @@
 with source_data as (
 
     select key, name, smiles, melting_temperature_C, csid, donotuse
-    from {{ source('dataset001_meltingpointprediction', 'tb_bradley_data_meltingpointprediction') }}
+    from {{ source('bradley', 'tb_bradley_data_meltingpointprediction') }}
     where donotuse is null
 
 )
