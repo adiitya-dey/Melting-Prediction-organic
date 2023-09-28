@@ -2,6 +2,6 @@ version: 2
 
 sources:
   - name: bradley
-    database: meltingpointprediction
+    database: dataset001_meltingpointprediction
     tables:
       - name: tb_bradley_data_meltingpointprediction
