@@ -11,7 +11,7 @@
 with source_data as (
 
     select key, name, smiles, melting_temperature_C, csid, donotuse
-    from {{ source('bradley', 'raw') }}
+    from {{ source('bradley', 'tb_bradley_data') }}
     where donotuse is null
 
 )
