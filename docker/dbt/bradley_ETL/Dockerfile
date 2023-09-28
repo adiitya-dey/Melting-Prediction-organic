@@ -29,6 +29,6 @@ COPY bradley_clean_data ./bradley_clean_data
 COPY profiles.yml .
 
 
-CMD ["gunicorn","-b", "0.0.0.0:8080", "app:main"]
+CMD ["gunicorn","-b", "0.0.0.0:8080", "main:app"]
 # CMD ["python", "app.py"]
 EXPOSE 8080

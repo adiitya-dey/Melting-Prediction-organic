@@ -10,4 +10,5 @@ bradley_clean_data:
       dataset: dataset001_meltingpointprediction # You can also use "schema" here
       threads: 1
       keyfile: /secrets/dbt-service-keyfile
+      location: us-east1
       # [<optional_config>](#optional-configurations): <value>
