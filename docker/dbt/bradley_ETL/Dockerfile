@@ -24,11 +24,11 @@ COPY  --from=builder /app/requirements.txt .
 
 RUN pip install --no-cache /wheels/*
 
-COPY app.py .
+COPY main.py .
 COPY bradley_clean_data ./bradley_clean_data
 COPY profiles.yml .
 
 
-CMD ["gunicorn","-b", "0.0.0.0:8080", "app:app"]
+CMD ["gunicorn","-b", "0.0.0.0:8080", "app:main"]
 # CMD ["python", "app.py"]
 EXPOSE 8080

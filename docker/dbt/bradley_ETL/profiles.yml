@@ -9,5 +9,5 @@ bradley_clean_data:
       project: meltingpointprediction
       dataset: dataset001_meltingpointprediction # You can also use "schema" here
       threads: 1
-      keyfile: /secrets/dbt-service-keyfile
+      keyfile: /secrets/dbt-service-keyfile.json
       # [<optional_config>](#optional-configurations): <value>
