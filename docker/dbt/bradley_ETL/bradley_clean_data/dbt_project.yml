@@ -33,9 +33,4 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   bradley_clean_data:
     # Config indicated by + and applies to all files under models/example/
-    staging:
-      +materialized: view
-    intermediate:
-      +materialized: view
-    marts:
       +materialized: view
