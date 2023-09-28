@@ -1,6 +1,6 @@
 # Note that only one of these targets is required
 
-my-bigquery-db:
+bradley_clean_data:
   target: prod
   outputs:
     prod:
