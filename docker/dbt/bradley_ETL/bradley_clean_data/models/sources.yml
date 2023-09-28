@@ -6,3 +6,4 @@ sources:
     database: meltingpointprediction
     tables:
       - name: tb_bradley_data
+        identifier: raw
