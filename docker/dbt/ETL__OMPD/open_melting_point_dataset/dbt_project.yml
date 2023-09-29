@@ -33,8 +33,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   open_melting_point_dataset:
     # Config indicated by + and applies to all files under models/example/
-    models:
-      marts:
-        +materialized: view
-      staging:
-        +materialized: view
+    
+    marts:
+      +materialized: view
+    staging:
+      +materialized: view

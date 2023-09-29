@@ -1,6 +1,6 @@
 {{ config(
     materialized='view',
-    database='transform_staging'
+    schema='transform_staging'
     ) }}
 
 with duplicate_csids as (
