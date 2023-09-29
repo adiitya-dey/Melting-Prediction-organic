@@ -30,11 +30,11 @@ duplicate_names as (
 
 )
 
-select name from duplicate_names
-union
-select name from duplicate_csids
-union
-select name from duplicate_smiles
+select key from {{ ref('vw__stg_bradley_data') }}
+where name in (select name from duplicate_names) 
+or smiles in (select smiles from duplicate_smiles)
+ or csid in (select csid from duplicate_csids)
+
 
 /*
     Uncomment the line below to remove records with null `id` values
