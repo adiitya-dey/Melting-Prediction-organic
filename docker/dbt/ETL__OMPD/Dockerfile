@@ -25,7 +25,7 @@ COPY  --from=builder /app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
 COPY main.py .
-COPY bradley_clean_data ./bradley_clean_data
+COPY open_melting_point_dataset ./open_melting_point_dataset
 COPY profiles.yml .
 
 
