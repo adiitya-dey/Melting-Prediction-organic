@@ -6,7 +6,7 @@
 with duplicate_csids as (
 
     select csid, count(csid)
-    from {{ ref('stg__bradley_data') }}
+    from {{ ref('vw__stg_bradley_data') }}
     group by csid
     having count(csid) > 1
 
@@ -15,7 +15,7 @@ with duplicate_csids as (
 duplicate_smiles as (
 
     select smiles, count(smiles)
-    from {{ ref('stg__bradley_data') }}
+    from {{ ref('vw__stg_bradley_data') }}
     group by smiles
     having count(smiles) > 1
 
@@ -24,7 +24,7 @@ duplicate_smiles as (
 duplicate_names as (
 
     select name, count(name)
-    from {{ ref('stg__bradley_data') }}
+    from {{ ref('vw__stg_bradley_data') }}
     group by name
     having count(name) > 1
 
