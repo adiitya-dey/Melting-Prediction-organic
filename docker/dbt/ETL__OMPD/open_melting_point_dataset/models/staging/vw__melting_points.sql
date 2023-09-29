@@ -1,6 +1,6 @@
 {{ config(
     materialized='view',
-    schema='data_warehouse'
+    schema='transform_staging'
     ) }}
 
 select S.key, S.name, S.smiles, S.melting_temperature_C
