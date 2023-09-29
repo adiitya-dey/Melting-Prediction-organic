@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: bradley
-    schema: dataset001_meltingpointprediction
-    database: meltingpointprediction
-    tables:
-      - name: tb_bradley_data

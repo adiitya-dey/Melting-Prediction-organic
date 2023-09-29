@@ -1,6 +1,0 @@
-
-version: 2
-
-models:
-  - name: final_bradley_data
-    description: "All duplicates(smiles, csids, names) have been eliminated and this is remaining data."
