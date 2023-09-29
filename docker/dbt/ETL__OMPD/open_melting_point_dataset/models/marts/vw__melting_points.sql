@@ -1,6 +1,6 @@
 {{ config(
     materialized='view',
-    database='data_warehouse'
+    schema='data_warehouse'
     ) }}
 
 select S.key, S.name, S.smiles, S.melting_temperature_C
