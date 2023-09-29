@@ -1,6 +1,6 @@
 {{ config(
     materialized='ephemeral',
-    database='raw_data'
+    schema='raw_data'
     ) }}
 
 with source_data as (
