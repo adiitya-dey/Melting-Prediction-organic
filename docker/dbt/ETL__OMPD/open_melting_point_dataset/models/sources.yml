@@ -10,11 +10,9 @@ sources:
   - name: transform_staging
     database: meltingpointprediction
     schema: transform_staging
-    tables:
-      - name: tb_open_melting_point_dataset
+    
 
   - name: data_warehouse
     database: meltingpointprediction
     schema: data_warehouse
-    tables:
-      - name: tb_open_melting_point_dataset
+    

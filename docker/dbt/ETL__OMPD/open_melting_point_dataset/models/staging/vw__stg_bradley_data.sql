@@ -6,7 +6,7 @@
 with source_data as (
 
     select key, name, smiles, melting_temperature_C, csid, donotuse
-    from {{ source('raw', 'tb_open_melting_point_dataset') }}
+    from {{ source('raw_data', 'tb_open_melting_point_dataset') }}
     where donotuse is null
 
 )
