@@ -9,7 +9,7 @@ sources:
 
   - name: transform_staging
     database: meltingpointprediction
-    schema: transform_staging
+    schema: prod_transform_staging
     
 
   - name: data_warehouse
