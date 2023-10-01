@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=builder /app/wheels /wheels
 COPY  --from=builder /app/requirements.txt .
 
-RUN  apt-get update && apt-get install openbabel
+RUN apt-get install openbabel -y
 
 RUN pip install --no-cache /wheels/*
 
