@@ -27,3 +27,9 @@ COPY  --from=builder /app/requirements.txt .
 RUN sudo apt update && sudo apt install openbabel && sudo apt install -f
 
 RUN pip install --no-cache /wheels/*
+
+COPY main.py .
+
+CMD ["gunicorn","-b", "0.0.0.0:8080", "main:app"]
+# CMD ["python", "app.py"]
+EXPOSE 8080
