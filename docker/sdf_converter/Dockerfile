@@ -28,6 +28,7 @@ RUN pip install --no-cache /wheels/*
 
 RUN apt-get update -y && apt-get install wget -y 
 RUN wget https://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download
+RUN ls -lrt
 RUN cd ~/download && tar zxf openbabel-2.3.1.tar.gz
 RUN mkdir build
 RUN cd build
