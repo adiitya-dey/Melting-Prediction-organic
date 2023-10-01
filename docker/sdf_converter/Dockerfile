@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=builder /app/wheels /wheels
 COPY  --from=builder /app/requirements.txt .
 
-RUN sudo apt update
+RUN  apt update
 
 RUN pip install --no-cache /wheels/*
 
