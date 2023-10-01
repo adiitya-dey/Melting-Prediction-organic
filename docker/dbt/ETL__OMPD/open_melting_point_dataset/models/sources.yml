@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: meltingpointprediction
+    schema: raw_data
+    tables:
+      - name: tb_open_melting_point_dataset
+
+  - name: transform_staging
+    database: meltingpointprediction
+    schema: transform_staging
+    
+
+  - name: data_warehouse
+    database: meltingpointprediction
+    schema: data_warehouse
+    

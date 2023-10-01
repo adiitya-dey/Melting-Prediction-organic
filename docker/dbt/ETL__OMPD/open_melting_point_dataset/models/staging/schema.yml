@@ -1,0 +1,27 @@
+
+version: 2
+
+models:
+  - name: vw__melting_points
+    description: melting point of all molecules in open melting point dataset after removing all duplicates.
+    columns:
+      - name: key
+        description: Primary key
+        tests:
+          - unique
+          - not null
+      - name: name
+        description: Name of the molecule.
+        tests:
+          - not null
+          - unique
+      - name: smiles
+        description: Smiles format of the molecule.
+        tests:
+          - not null
+          - unique
+      - name: melting_point
+        description: Melting point of molecules in degree Celcius.
+        tests:
+          - not null
+

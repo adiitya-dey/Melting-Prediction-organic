@@ -1,13 +1,13 @@
 # Note that only one of these targets is required
 
-bradley_clean_data:
+open_melting_point_dataset:
   target: prod
   outputs:
     prod:
       type: bigquery
       method: service-account
       project: meltingpointprediction
-      dataset: dataset001_meltingpointprediction # You can also use "schema" here
+      dataset:  prod # You can also use "schema" here
       threads: 1
       keyfile: /secrets/dbt-service-keyfile
       location: us-east1
