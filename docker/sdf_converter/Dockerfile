@@ -26,7 +26,8 @@ COPY  --from=builder /app/requirements.txt .
 
 RUN pip install --no-cache /wheels/*
 
-RUN curl -o openbabel-2.3.1.tar.gz  https://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download
+RUN apt-get install -y wget 
+RUN wget  https://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download
 RUN tar zxf openbabel-2.3.1.tar.gz
 RUN mkdir build
 RUN cd build
