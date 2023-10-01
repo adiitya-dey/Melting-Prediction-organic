@@ -24,12 +24,20 @@ WORKDIR /app
 COPY --from=builder /app/wheels /wheels
 COPY  --from=builder /app/requirements.txt .
 
-RUN apt-get install openbabel -y
-
 RUN pip install --no-cache /wheels/*
+
+RUN wget https://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download
+RUN tar zxf openbabel-2.3.1.tar.gz
+RUN mkdir build
+RUN cd build
+RUN  cmake ../openbabel-2.3.1
+RUN make
+RUN make install
+
+
 
 COPY main.py .
 
 CMD ["gunicorn","-b", "0.0.0.0:8080", "main:app"]
-# CMD ["python", "app.py"]
+
 EXPOSE 8080
