@@ -26,7 +26,7 @@ COPY  --from=builder /app/requirements.txt .
 
 RUN pip install --no-cache /wheels/*
 
-RUN apt-get update -y && apt-get install wget -y 
+RUN apt-get update -y && apt-get install cmake wget -y && 
 RUN wget -O openbabel-2.3.1.tar.gz https://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download
 RUN ls -lrt
 RUN tar zxf openbabel-2.3.1.tar.gz
