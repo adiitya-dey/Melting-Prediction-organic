@@ -30,10 +30,13 @@ def home():
     data = request.get_json()
 
     try:
-        file_name = data["key"] + '.sdf'
-        smile_name = '-:"' + data["smiles"] + '"'
-        subprocess.run(['obabel', smile_name,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
-                       check=True, text=True)
+        # file_name = data["key"] + '.sdf'
+        # smile_name = '-:"' + data["smiles"] + '"'
+        # subprocess.run(['obabel', smile_name,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
+        #                check=True, text=True)
+
+        cmd = 'obabel -:"' + data["smiles"] + '" -O ~/Thesis/bradley/' + data["key"] + '.sdf --separate --unique --gen3D'
+        subprocess.run([cmd], check=True, text=True)
     except subprocess.CalledProcessError as e:
         return f"Error running the subprocess: {e}"
     else:
