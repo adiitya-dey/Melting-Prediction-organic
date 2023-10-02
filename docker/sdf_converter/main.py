@@ -29,7 +29,6 @@ def upload_blob(file_name):
 def home():
     smiles = request.args.get('smiles')
     key = request.args.get('key')
-    request.encoding_errors
 
     try:
         file_name = key + '.sdf'
