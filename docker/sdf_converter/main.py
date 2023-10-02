@@ -18,7 +18,7 @@ def upload_blob(file_name):
         bucket = client.bucket(bucket_name)
         blob = bucket.blob(destination_blob_name)
         blob.upload_from_filename(source_file_name)
-    except blob.Error as e:
+    except Exception as e:
         return f"Error uploading the file: {e}"
     else:
         return f"{source_file_name} uploaded successfully to {destination_blob_name}."
