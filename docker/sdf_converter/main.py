@@ -36,7 +36,7 @@ def home():
         #                check=True, text=True)
 
         cmd = 'obabel -:"' + data["smiles"] + '" -O ' + data["key"] + '.sdf --separate --unique --gen3D'
-        subprocess.run([cmd], check=True, text=True)
+        subprocess.run(cmd, check=True, text=True)
     except subprocess.CalledProcessError as e:
         return f"Error running the subprocess: {e}"
     else:
