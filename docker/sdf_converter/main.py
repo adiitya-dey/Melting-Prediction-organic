@@ -37,7 +37,7 @@ def home():
     except subprocess.CalledProcessError as e:
         return f"Error running the subprocess: {e}"
     else:
-        upload_blob(file_name)
+        return upload_blob(file_name)
 
     
 
