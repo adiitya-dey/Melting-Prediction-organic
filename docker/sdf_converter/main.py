@@ -27,8 +27,8 @@ def upload_blob(file_name):
 
 @app.route('/', methods=['GET'])
 def home():
-    smiles = request.args.get('smiles')
-    key = request.args.get('key')
+    smiles = str(request.args['smiles'])
+    key = str(request.args['key'])
 
     try:
         file_name = key + '.sdf'
