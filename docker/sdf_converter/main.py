@@ -28,16 +28,15 @@ def upload_blob(file_name):
 @app.route('/', methods=['POST'])
 def home():
     data = request.get_json()
-    return f"Request recieved. {data}"
 
-    # try:
-    #     file_name = key + '.sdf'
-    #     subprocess.run(['obabel','-:',smiles,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
-    #                    check=True, text=True)
-    # except subprocess.CalledProcessError as e:
-    #     return f"Error running the subprocess: {e}"
-    # else:
-    #     upload_blob(file_name)
+    try:
+        file_name = data["key"] + '.sdf'
+        subprocess.run(['obabel','-:',data["smiles"],'-O', file_name, '--seperate', '--unique', '--gen3D'], \
+                       check=True, text=True)
+    except subprocess.CalledProcessError as e:
+        return f"Error running the subprocess: {e}"
+    else:
+        upload_blob(file_name)
 
     
 
