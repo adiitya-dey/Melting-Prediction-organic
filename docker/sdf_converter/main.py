@@ -13,33 +13,34 @@ def upload_blob(file_name):
     bucket_name = 'datasets-meltingpointprediction'
     source_file_name =  file_name
     destination_blob_name = "SDF/" + file_name
-    if os.path.isfile("./" + file_name):
-        try:
-            bucket = client.bucket(bucket_name)
-            blob = bucket.blob(destination_blob_name)
-            blob.upload_from_filename(source_file_name)
-        except Exception as e:
-            return f"Error uploading the file: {e}"
-        else:
-            return f"{source_file_name} uploaded successfully to {destination_blob_name}."
+    
+    try:
+        bucket = client.bucket(bucket_name)
+        blob = bucket.blob(destination_blob_name)
+        blob.upload_from_filename(source_file_name)
+    except Exception as e:
+        return f"Error uploading the file: {e}"
     else:
-        return f"Conversion did not complete successfully."
+        return f"{source_file_name} uploaded successfully to {destination_blob_name}."
+
     
 
 
 @app.route('/', methods=['POST'])
 def home():
     data = request.get_json()
-
-    try:
-        file_name = data["key"] + '.sdf'
-        smile_name = '-:' + data["smiles"]
-        subprocess.run(['obabel', smile_name,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
-                       check=True, text=True)
-    except subprocess.CalledProcessError as e:
-        return f"Error running the subprocess: {e}"
+    
+    file_name = data["key"] + '.sdf'
+    smile_name = '-:' + data["smiles"]
+    result = subprocess.run(['obabel', smile_name,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
+                    check=True, text=True, capture_output=True)
+    if result.returncode:
+        if "0 molecules converted" in result.stdout:
+            return f"Molecule did not convert successfully. Error: {result.stdout}"
+        elif "1 molecules converted" in result.stdout:
+            upload_blob(file_name)
     else:
-        return upload_blob(file_name)
+        return f"Obabel did not run successfully. Error: {result.stderr}"
 
     
 
