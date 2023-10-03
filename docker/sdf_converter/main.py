@@ -26,15 +26,18 @@ app = flask.Flask(__name__)
     
 
 
-@app.route('/', methods=['POST'])
+@app.route('/api/smilestosdf', methods=['POST'])
 def home():
     
-    # Validate if the parameters for key and smiles are passed.
+    # Validate if the parameters for key and smiles are not empty.
     data = request.get_json()
-    if data["key"] is None:
-        message = {'message': f'Invalid Parameter passed for key.'}
+    if data["key"] is None or data["smiles"] is None:
+        message = {'message': f'Invalid Parameter passed.'}
         return make_response(jsonify(message), 400)
-    elif data["smiles"] is None:
+    
+    # Validate if the parameters for the key and smiles are 
+    # string format.
+    if type(data["key"]) != str or type(data["smiles"]) != str:
         message = {'message': f'Invalid Parameter passed for smiles.'}
         return make_response(jsonify(message), 400)
     
