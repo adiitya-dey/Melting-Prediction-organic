@@ -38,7 +38,7 @@ def home():
         if "0 molecules converted" in result.stdout:
             return f"Molecule did not convert successfully. Error: {result.stdout}"
         elif "1 molecules converted" in result.stdout:
-            upload_blob(file_name)
+            return upload_blob(file_name)
     else:
         return f"Obabel did not run successfully. Error: {result.stderr}"
 
