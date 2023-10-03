@@ -31,7 +31,7 @@ def home():
 
     try:
         file_name = data["key"] + '.sdf'
-        smile_name = '-:"' + data["smiles"] + '"'
+        smile_name = '-:' + data["smiles"]
         subprocess.run(['obabel', smile_name,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
                        check=True, text=True)
     except subprocess.CalledProcessError as e:
