@@ -34,7 +34,7 @@ def home():
     smile_name = '-:' + data["smiles"]
     result = subprocess.run(['obabel', smile_name,'-O', file_name, '--seperate', '--unique', '--gen3D'], \
                     check=True, text=True, capture_output=True)
-    if result.returncode:
+    if result.returncode == 0:
         if "0 molecules converted" in result.stdout:
             return f"Molecule did not convert successfully. Error: {result.stdout}"
         elif "1 molecules converted" in result.stdout:
