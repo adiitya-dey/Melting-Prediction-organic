@@ -33,13 +33,13 @@ def home():
     data = request.get_json()
     if data["key"] is None or data["smiles"] is None:
         message = {'message': f'Invalid Parameter passed.'}
-        return jsonify(message), 400
+        return message, 400
     
     # Validate if the parameters for the key and smiles are 
     # string format.
     if type(data["key"]) != str or type(data["smiles"]) != str:
         message = {'message': f'Invalid Parameter passed for smiles.'}
-        return jsonify(message), 400
+        return message, 400
     
 
     # Set the sdf file name based on key.
