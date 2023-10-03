@@ -13,15 +13,17 @@ def upload_blob(file_name):
     bucket_name = 'datasets-meltingpointprediction'
     source_file_name =  file_name
     destination_blob_name = "SDF/" + file_name
-
-    try:
-        bucket = client.bucket(bucket_name)
-        blob = bucket.blob(destination_blob_name)
-        blob.upload_from_filename(source_file_name)
-    except Exception as e:
-        return f"Error uploading the file: {e}"
+    if os.path.isfile("./" + file_name):
+        try:
+            bucket = client.bucket(bucket_name)
+            blob = bucket.blob(destination_blob_name)
+            blob.upload_from_filename(source_file_name)
+        except Exception as e:
+            return f"Error uploading the file: {e}"
+        else:
+            return f"{source_file_name} uploaded successfully to {destination_blob_name}."
     else:
-        return f"{source_file_name} uploaded successfully to {destination_blob_name}."
+        return f"Conversion did not complete successfully."
     
 
 
