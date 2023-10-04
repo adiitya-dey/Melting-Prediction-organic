@@ -35,9 +35,6 @@ async def smilestopdf(smiles: Smiles):
     
     return smiles
 
-if __name__ == "__main__":
-    uvicorn.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-
 #     # Validate if the parameters for key and smiles are not empty.
 #     data = request.get_json()
 #     if data["key"] is None or data["smiles"] is None:
