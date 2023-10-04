@@ -35,6 +35,6 @@ RUN apt-get update -y && apt-get install openbabel -y
 
 COPY main.py .
 
-CMD ["uvicorn","--host", "0.0.0.0", "--port", "8080", "main:app"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
 
 EXPOSE 8080
