@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import subprocess
-import os
+# import subprocess
+# import os
 from google.cloud import storage
-from flask import request, make_response, jsonify
+# from flask import request, make_response, jsonify
 import uvicorn
 
 app = FastAPI()
@@ -34,6 +34,12 @@ class Smiles(BaseModel):
 async def smilestopdf(smiles: Smiles):
     
     return smiles
+
+
+
+
+
+
 
 #     # Validate if the parameters for key and smiles are not empty.
 #     data = request.get_json()
