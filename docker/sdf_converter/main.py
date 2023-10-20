@@ -31,9 +31,9 @@ class Smiles(BaseModel):
 
 
 @app.post('/api/smilestosdf/')
-async def smilestopdf(smiles: Smiles):
+async def smilestopdf():
     
-    return smiles
+    return f"Successfullly"
 
 
 
