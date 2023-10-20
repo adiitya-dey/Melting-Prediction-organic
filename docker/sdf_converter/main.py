@@ -30,7 +30,7 @@ class Smiles(BaseModel):
     smiles: str   
 
 
-@app.post('/api/smilestosdf/')
+@app.get('/api/smilestosdf/')
 async def smilestopdf():
     
     return f"Successfullly"
