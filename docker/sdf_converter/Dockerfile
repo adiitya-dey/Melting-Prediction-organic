@@ -27,14 +27,9 @@ COPY  --from=builder /app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
 RUN apt-get update -y && apt-get install openbabel -y
-# RUN wget -O ./openbabel-2.3.1.tar.gz https://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download
-# RUN ls -lrt && tar zxf openbabel-2.3.1.tar.gz
-# RUN mkdir build && cd build && cmake ../openbabel-2.3.1 && make && make install
 
+COPY apps ./apps
 
-
-COPY main.py .
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "apps.main:app", "--host", "0.0.0.0", "--port", "8080"]
 
 EXPOSE 8080

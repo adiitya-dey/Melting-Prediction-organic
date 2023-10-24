@@ -31,4 +31,4 @@ COPY profiles.yml .
 
 CMD ["gunicorn","-b", "0.0.0.0:8080", "main:app"]
 # CMD ["python", "app.py"]
-EXPOSE 8080
+EXPOSE $PORT
