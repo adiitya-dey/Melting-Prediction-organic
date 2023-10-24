@@ -1,0 +1,15 @@
+version: 2
+
+
+seeds:
+  - name: bradley_data
+    config:
+      column_types:
+        key: int
+        chemical_name: varchar(30)
+        smiles: varchar(30)
+        melting_point_celcius: numeric(5,3)
+        csid: varchar(29)
+        csid_link: varchar(30)
+        csid_site: varchar(30)
+        donotuse: char(1)
