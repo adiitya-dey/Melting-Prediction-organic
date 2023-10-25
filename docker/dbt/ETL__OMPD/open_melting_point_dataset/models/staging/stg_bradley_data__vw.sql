@@ -1,6 +1,6 @@
 {{ config(
     materialized='ephemeral',
-    schema='transform_staging'
+    -- schema='transform_staging'
     ) }}
 
 with source_data as (
