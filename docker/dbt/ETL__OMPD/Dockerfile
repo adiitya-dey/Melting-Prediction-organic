@@ -14,13 +14,13 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 # RUN pip install -r requirements.txt
-
+ 
 
 #final stage
 FROM python:3.11-slim
 WORKDIR /app
 
-
+ENV PORT $PORT
 
 COPY --from=builder /app/wheels /wheels
 COPY  --from=builder /app/requirements.txt .
