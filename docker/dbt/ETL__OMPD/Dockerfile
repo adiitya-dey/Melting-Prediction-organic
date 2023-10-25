@@ -20,7 +20,6 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.t
 FROM python:3.11-slim
 WORKDIR /app
 
-ENV PORT $PORT
 
 COPY --from=builder /app/wheels /wheels
 COPY  --from=builder /app/requirements.txt .
@@ -32,6 +31,6 @@ COPY open_melting_point_dataset ./open_melting_point_dataset
 COPY profiles.yml .
 
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", $PORT]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
 # CMD ["python", "app.py"]
-EXPOSE $PORT
+# EXPOSE $PORT
