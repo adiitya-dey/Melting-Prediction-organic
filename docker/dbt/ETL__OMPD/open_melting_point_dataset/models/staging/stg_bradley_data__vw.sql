@@ -4,7 +4,7 @@
 
 with source_data as (
 
-    select key, chemical_name, smiles, melting_point_celcius, csid, donotuse
+    select key, chemical_name, smiles, melting_temperature_C
     from {{ ref('bradley_data') }}
     where donotuse is null
 
