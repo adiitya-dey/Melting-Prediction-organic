@@ -4,7 +4,7 @@ sources:
   - name: warehouse
     database: materialscience-dev
     schema: warehouse
-    table:
+    tables:
       - name: bradley_data
     
 
