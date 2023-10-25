@@ -29,6 +29,6 @@ COPY open_melting_point_dataset ./open_melting_point_dataset
 COPY profiles.yml .
 
 
-CMD ["uvicorn", "apps.main:app", "--host", "0.0.0.0", "--port", $PORT]
+CMD ["uvicorn", "apps.main:app", "--host", "0.0.0.0", "--port", "8080"]
 # CMD ["python", "app.py"]
-EXPOSE $PORT
+EXPOSE 8080
