@@ -1,9 +1,11 @@
 version: 2
 
 sources:
-  - name: bradley_data
+  - name: warehouse
     database: materialscience-dev
     schema: warehouse
+    table:
+      - name: bradley_data
     
 
 #   - name: data_warehouse
