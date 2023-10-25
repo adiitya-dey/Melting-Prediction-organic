@@ -4,7 +4,7 @@ import subprocess
 app = FastAPI()
 
 
-@app.get('/api/ompd/v1/', status_code=201)
+@app.get('/api/v1/dbt/run/ompd/', status_code=201)
 def home():
     try:
         # subprocess.run(['dbt','deps', '--profiles-dir','.', '--project-dir', '/'], check=True, text=True)
