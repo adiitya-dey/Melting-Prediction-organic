@@ -10,7 +10,7 @@ open_melting_point_dataset:
       dataset:  dev # You can also use "schema" here
       threads: 1
       keyfile: /secrets/dbt-secret-keyfile
-      location: us-east1
+      # location: us-east1
       # [<optional_config>](#optional-configurations): <value>
     
     # prod:
