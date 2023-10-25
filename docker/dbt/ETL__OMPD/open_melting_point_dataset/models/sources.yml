@@ -1,9 +1,9 @@
-# version: 2
+version: 2
 
-# sources:
-#   - name: transform_staging
-#     database: materialscience-dev
-#     schema: transform_staging
+sources:
+  - name: bradley_data
+    database: materialscience-dev
+    schema: warehouse
     
 
 #   - name: data_warehouse
