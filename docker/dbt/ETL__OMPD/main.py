@@ -13,6 +13,6 @@ def home():
     except subprocess.CalledProcessError as e:
         raise HTTPException(status_code=501,
                             detail=[{'msg': "Subprocess failed to run dbt.",
-                                     'error': e}]) 
+                                     'error': f"{e}"}]) 
     else:
         return 0
