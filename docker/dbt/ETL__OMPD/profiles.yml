@@ -7,7 +7,7 @@ open_melting_point_dataset:
       type: bigquery
       method: service-account
       project: materialscience-dev
-      dataset:  dev # You can also use "schema" here
+      # dataset:  dev # You can also use "schema" here
       threads: 1
       keyfile: /secrets/dbt-secret-keyfile
       # location: us-east1
