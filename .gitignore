@@ -1,4 +1,48 @@
-
+# User defined.
 target/
 dbt_packages/
 logs/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+env/
+*.egg-info/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE or editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw??
+*.db
+*.sqlite
+*.gitattributes
+*.gitignore
+*.bak
+
+# Jupyter Notebook specific files
+.ipynb_checkpoints
+
+# System or log files
+*.log
+
+# Other
+db.sqlite3
+media/
+*.pyc
+*.db
+local_settings.py
